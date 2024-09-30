@@ -1,0 +1,53 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px; /* Add padding to the body for better spacing */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .dark-form {
+    max-width: 400px; /* Set a maximum width for the form */
+    padding: 30px; /* Increase padding for a more spacious feel */
+    background-color: #1e1e1e; /* Dark background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* More pronounced shadow */
+    display: flex; /* Use flexbox for form layout */
+    flex-direction: column; /* Stack inputs vertically */
+  }
+  
+  .form-input {
+    width: 100%; /* Full width for inputs */
+    padding: 12px; /* Increase padding for inputs */
+    margin: 10px 0; /* Set margin for better spacing */
+    border: 1px solid #444; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #2a2a2a; /* Dark background for inputs */
+    color: #ffffff; /* Text color */
+    font-size: 16px; /* Increase font size for better readability */
+  }
+  
+  .form-input::placeholder {
+    color: #888; /* Placeholder text color */
+  }
+  
+  .form-button {
+    width: 100%; /* Full width for button */
+    padding: 12px; /* Increase padding for button */
+    background-color: #6200ea; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Increase font size for better readability */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .form-button:hover {
+    background-color: #3700b3; /* Darker shade on hover */
+  }
+  
