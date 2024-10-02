@@ -1,6 +1,7 @@
 const Student = require('../models/student');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const path = require('path')
 const dotenv = require('dotenv');
 
 // Set the path to the .env file
@@ -13,6 +14,7 @@ dotenv.config({ path: envPath });
 exports.register = async (req, res) => {
   const { name, email, password } = req.body;
   try {
+    console.log('hi')
     // Check if user exists
     let student = await Student.findOne({ email });
     if (student) return res.status(400).json({ msg: 'User already exists' });
@@ -42,6 +44,7 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
+    console.log('hi')
     // Check if user exists
     let student = await Student.findOne({ email });
     if (!student) return res.status(400).json({ msg: 'Invalid Credentials' });
@@ -62,3 +65,23 @@ exports.login = async (req, res) => {
     res.status(500).send('Server Error');
   }
 };
+
+// In authController.js
+exports.getUser = async (req, res) => {
+  const studentId = req.student;
+  if (!studentId) {
+    return res.status(400).json({ msg: 'Student ID not found in request' });
+  }
+  try {
+    const student = await Student.findById(studentId).select('-password');
+    if (!student) return res.status(404).json({ msg: 'Student not found' });
+    res.json(student);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+};
+
+  
+
+
